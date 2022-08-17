@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+        <record id="view_hospital_female_patient_form" model="ir.ui.view">
+            <field name="name">hospital.female.patient.form</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="ref"/>
+                                <field name="gender"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_hospital_female_patient_tree" model="ir.ui.view">
+            <field name="name">hospital.female.patient.tree</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="ref"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_hospital_female_patient_search" model="ir.ui.view">
+            <field name="name">hospital.female.patient.search</field>
+            <field name="model">hospital.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|', '|',('name','ilike', self),('ref', 'ilike', self),('age', 'ilike', self)]"/>
+                    <field name="age"/>
+                    <field name="gender"/>
+                    <field name="ref"/>
+                    <filter name="filter_male" string="Male" domain="[('gender','=','male')]"/>
+                    <filter name="filter_female" string="Female" domain="[('gender','=','female')]"/>
+                    <separator/>
+                    <filter name="filter_adult" string="Adult" domain="[('age','&lt;=',25)]"/>
+                    <separator/>
+                    <filter name="filter_archived" string="Archived" domain="[('active', '=', False)]"/>
+                    <group expand="0" string="Group By">
+                        <filter name="group_by_gender" string="Gender" context="{'group_by' : 'gender'}"/>
+                    </group>
+                    <searchpanel>
+                        <field name="gender" string="Gender" enable_counters="1" icon="fa-users" select="multi"/>
+                    </searchpanel>
+
+                </search>
+            </field>
+        </record>
+        <record id="action_hospital_female_patient" model="ir.actions.act_window">
+            <field name="name">Female Patients</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hospital.patient</field>
+            <field name="view_mode">tree,form,search</field>
+            <!--            <field name="context">{'default_gender' : 'female','search_default_filter_female' : 1,'search_default_group_by_gender' : 1}</field>-->
+            <field name="context">{}</field>
+<!--            <field name="domain">[('gender','=','female')]</field>-->
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hospital_female_patient_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_hospital_female_patient_form')})]"/>
+
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data found!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="female_hospital_mini"
+                  name="Female Patient"
+                  action="action_hospital_female_patient"
+                  parent="hospital_master"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>

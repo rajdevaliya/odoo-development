@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="1">
+        <record id="tag_patient_prime" model="tag.patient" forcecreate="0">
+            <field name="name">Prime</field>
+        </record>
+        <record id="tag_patient_gsrtc" model="tag.patient">
+            <field name="name">GSRTC</field>
+        </record>
+        <record id="tag_patient_mr" model="tag.patient">
+            <field name="name">Mr</field>
+            <field name="active" eval='True'/>
+        </record>
+    </data>
+</odoo>

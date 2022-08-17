@@ -1,0 +1,81 @@
+<odoo>
+    <data>
+        <record id="view_tag_patient_form" model="ir.ui.view">
+            <field name="name">tag.patient.form</field>
+            <field name="model">tag.patient</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="date_of_birth"/>
+                                <field name="color2" widget="color" />
+                                <field name="appointment_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="active" widget="boolean_toggle"/>
+                                <field name="color" widget="color_picker"/>
+                                <field name="sequence"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_tag_patient_tree" model="ir.ui.view">
+            <field name="name">tag.patient.tree</field>
+            <field name="model">tag.patient</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="color" widget="color_picker"/>
+                    <field name="active" widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_tag_patient_search" model="ir.ui.view">
+            <field name="name">tag.patient.search</field>
+            <field name="model">tag.patient</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|', '|',('name','ilike', self),('active', 'ilike', self)"/>
+                    <field name="active"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_tag_patient" model="ir.actions.act_window">
+            <field name="name">tag.Patient</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">tag.patient</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="context">{}</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'tree', 'view_id': ref('view_tag_patient_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_tag_patient_form')})]"/>
+
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data found!
+                </p>
+            </field>
+        </record>
+
+
+        <menuitem id="tag_patient_mini"
+                  name="Patient Tag"
+                  action="action_tag_patient"
+                  parent="hospital_root"
+                  sequence="1"/>
+
+
+    </data>
+</odoo>
