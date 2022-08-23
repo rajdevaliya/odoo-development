@@ -39,7 +39,7 @@ class HospitalAppointment(models.Model):
         ('in_consultation', 'In Consultation'),
         ('done', 'Done'),
         ('cancel', 'Cancel')
-    ], string='Status', default='draft')
+    ], string='Status', default='draft',group_expand='_expand_groups')
     doctor_id = fields.Many2one('res.users', string='Doctor')
     pharmacy_line_ids = fields.One2many('appointment.pharmacy.lines', 'appointment_id', string='Pharmacy Lines')
     hide_sales_price = fields.Boolean(string='Hide Sales Price')
@@ -48,6 +48,10 @@ class HospitalAppointment(models.Model):
     progress = fields.Integer(string="Progress", compute='_compute_progress')
     company_id = fields.Many2one('res.company', string='Company', default=lambda self: self.env.company)
     currency_id = fields.Many2one('res.currency', string='Currency', related='company_id.currency_id')
+
+    @api.model
+    def _expand_groups(self,states,domain,order):
+        return ['draft', 'in_consultation', 'done', 'cancel']
 
     @api.depends('state')
     def _compute_progress(self):

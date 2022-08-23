@@ -27,6 +27,7 @@ Since its inception in the year 1841, Civil Hospital is devoted to the mission o
 
     # always loaded
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/tag_patient_data.xml',
         'data/sequence_data.xml',
