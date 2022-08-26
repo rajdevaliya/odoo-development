@@ -44,6 +44,7 @@
                                 <field name="age"/>
                                 <field name="appointment_count"/>
                                 <field name="is_birthday"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
                             </group>
                             <group>
                                 <field name="ref"/>
@@ -81,6 +82,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="ref"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
                     <field name="appointment_count" sum="Total appointment"/>
                     <field name="name"/>
                     <field name="dob"/>

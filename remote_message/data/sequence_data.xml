@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+
+        <!-- Sequences for sale.order -->
+        <record id="seq_remote_message" model="ir.sequence">
+            <field name="name">Remote Message</field>
+            <field name="code">remote.message</field>
+            <field name="prefix">SMS</field>
+            <field name="padding">4</field>
+        </record>
+
+    </data>
+</odoo>

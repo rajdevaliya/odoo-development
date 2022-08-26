@@ -30,6 +30,8 @@ class HospitalPatient(models.Model):
     phone = fields.Char("Phone")
     email = fields.Char("Email")
     website = fields.Char("Website")
+    company_id = fields.Many2one('res.company', required=True, default=lambda self: self.env.user.company_id)
+
 
     # this function will give alert if there is a birthday of any
     @api.depends('dob')

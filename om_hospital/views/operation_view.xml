@@ -62,6 +62,7 @@
                   name="Operation"
                   action="action_hospital_operation"
                   parent="hospital_root"
+                  groups="om_hospital.group_hospital_lab_manager"
                   sequence="12"/>
 
 
