@@ -1,0 +1,67 @@
+<odoo>
+    <data>
+
+        <record id="res_config_settings_sms_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.sms.view.form</field>
+            <field name="model">res.config.settings</field>
+            <field name="priority" eval="90"/>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[hasclass('settings')]" position="inside">
+                    <div class="app_settings_block" data-string="SMS Credentials" id="sms" string="SMS Credentials"
+                         data-key="remote_message">
+                        <h2>SMS Credentials</h2>
+                        <div class="row mt16 o_settings_container" id="end_contract_setting">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="o_form_label">Url</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="url" class="text-center oe_inline"/>
+                                    </div>
+                                    <span class="o_form_label">Api Key</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="api_key" class="text-center oe_inline"/>
+                                    </div>
+                                    <span class="o_form_label">User Name</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="user_name" class="text-center oe_inline"/>
+                                    </div>
+                                    <span class="o_form_label">Sender Name</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="sender_name" class="text-center oe_inline"/>
+                                    </div>
+                                    <span class="o_form_label">SMS Type</span>
+                                    <div class="text-muted content-group mt16">
+                                        <field name="sms_type" class="text-center oe_inline"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="action_remote_message_config_settings" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'remote_message', 'bin_size': False}</field>
+        </record>
+
+        <menuitem id="remote_message_config_menu"
+                  name="Configuration"
+                  parent="message_root"
+                  sequence="11"/>
+
+        <menuitem id="remote_message_config_settings_menu"
+                  name="Settings"
+                  parent="remote_message_config_menu"
+                  action="action_remote_message_config_settings"
+                  sequence="1"/>
+    </data>
+</odoo>
