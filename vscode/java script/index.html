@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script  src="js/script.js"></script>
+</head>
+
+<body style="padding: 100px; background-color: cornsilk;">
+    <!-- <ul>
+        <li class="cl">list 1</li>
+        <li id="first">list 2</li>
+        <li>list 3</li>
+        <li class="cl">list 4</li>
+    </ul> -->
+    <!-- <h2 class="intro">heading 1</h2>
+    <div id="div">
+        <p class="intro">paragraph 1</p>
+        <h2>heading 2</h2>
+        <p class="intro">paragraph 2</p>
+        <h2>heading 3</h2>
+        <p>paragraph 3</p>
+    </div> -->
+    <!-- <ul id="intro">
+        <li>list 1</li>
+        <li>list 2</li>
+        <li>list 3</li>
+        <li>list 4</li>
+    </ul>
+    <ul>
+        <li>list a</li>
+        <li>list b</li>
+        <li>list c</li>
+        <li>list d</li>
+    </ul> -->
+    <div id="mydiv" style="padding: 50px;background-color:aqua">
+        <button id="btn" style="color: white; background-color:red">
+            send
+        </button>
+    </div>
+    <!-- <input type="text" id="myInput"> -->
+
+
+    <script>
+        // let elm = document.getElementById("first")
+        // console.log(elm)
+        // elm.innerHTML = "<strong>Hello world</strong>"
+        // console.log(elm.innerHTML);
+        // let elm = document.getElementsByClassName("cl");
+        // for (i = 0; i < elm.length; i++){
+        //     elm[i].innerHTML = "<strong>java</strong>"
+        // }
+        // let elm = document.getElementsByTagName("h2")
+        // for (i = 0; i < elm.length; i++){
+        //     elm[i].innerHTML = "<strong>java</strong>"
+        // }
+        // let div1 = document.getElementById("div");
+        // console.log(div1);
+        // let elm = div1.getElementsByTagName("h2")
+        // for (i = 0; i < elm.length; i++){
+        //     elm[i].innerHTML = "<strong>java</strong>"
+        // }
+
+        // ====query selector====
+
+        // let elm = document.querySelectorAll("p.intro")
+        // for (i = 0; i < elm.length; i++){
+        //     elm[i].innerHTML = "<strong>java</strong>"
+        // }
+
+        // ========from child id to parent selector===
+        // let elm = document.getElementById("intro")
+        // let prt = elm.parentElement;
+        // console.log(elm);
+        // console.log(prt);
+        // prt.innerHTML = "list"
+
+        // /l/ ======from parent id to child and sibling ===
+        // let elm = document.getElementById("intro");
+        // let node = elm.children;
+        // // console.log(elm);
+        // console.log(node);
+
+        // ====== creating and appending elements =====
+        // let elm = document.getElementById("intro")
+        // let h1 = document.createElement("li")
+        // let text = document.createTextNode("list 1111")
+        // h1.appendChild(text)
+        // h1.textContent = "Hello world"
+        // h1.id = "introd"
+
+        // elm.appendChild(h1)
+        // document.body.appendChild(h1)
+        // let mj = document.getElementById("introd")
+        // console.log(mj.textContent);
+        // =============insdert befote =========
+        // let post = elm.firstElementChild.nextElementSibling;
+        // let post1 = post.nextElementSibling.nextElementSibling
+        // elm.insertBefore(h1, post1)
+        // elm.removeChild(post)
+        // let cloneelm = elm.cloneNode(true) //if false , it will not take child element
+        // let dd = document.body.appendChild(cloneelm)
+
+        // let h2 = document.createElement("li")
+        // h2.textContent = "service"
+        // let replace = elm.firstElementChild.nextElementSibling
+        // elm.replaceChild(h2, replace)
+
+        // ===========adjacent html =======
+        // let html = "<h1>Menu</h1>"
+        // elm.insertAdjacentHTML("beforebegin",html)
+
+        // ================== set attribute ==========
+
+        // let btn = document.getElementById("btn");
+        // btn.setAttribute("name", "button")  //to set the attribute in element
+        // let value = btn.getAttribute("name")  // to see the value of attribute
+        // console.log(value);
+        // let remov = btn.removeAttribute("name") //to remove attribute
+        // console.log(remov);
+        // let check = btn.hasAttribute("name"); // to check availability of that attribute
+        // console.log(check);
+
+        // ============ change inline style ===========
+
+        // btn.style.cssText = 'background-color:red; border;'
+        // btn.setAttribute("style", "background-color:blue; color:white;border:1px solid green;")
+        // // above will change styles available in elements
+
+        // let css = getComputedStyle(btn);
+        // console.log(css)
+
+        // =====================Event listner ==========================
+
+        //let btn = document.getElementById("btn");
+        // btn.addEventListener("click", function(){console.log("clicked...")})
+        // btn.addEventListener("mouseover", function(){console.log("mouseover...")})
+        // btn.addEventListener("mouseout", function(){console.log("mouseout...")})
+
+        // function click1(){console.log("click1");}
+        // function click2(){console.log("click2");}
+
+        // btn.addEventListener("click", click1)
+        // btn.addEventListener("click", click2)
+        // btn.removeEventListener("click", click1)
+
+        // ====================DOM content loaded and load ====
+        // window.addEventListener("DOMContentLoaded", function(){console.log("HTML loaded");})
+        // window.addEventListener("load", function(){console.log("js and css loaded");})
+
+        // ===========mouse event ===========
+        // btn.addEventListener("contextmenu", function(){console.log("right click event");})
+        // btn.addEventListener("dblclick", function(){console.log("double click event");})
+        // btn.addEventListener("mousedown", function(){console.log("mouse down event");})
+        // btn.addEventListener("mouseup", function(){console.log("mouse up event");})
+        // btn.addEventListener("mouseover", function(){console.log("mouse over event");})
+        // btn.addEventListener("mouseout", function(){console.log("mouse out event");})
+
+        // =========== KeyboardEvent ===
+        // window.addEventListener("keydown", function(e){console.log(e.key);})
+        // window.addEventListener("keyup", function(e){console.log(e.key);})
+        //above will after leaving the key
+
+        // ==============scroll event ==========
+        // window.addEventListener("scroll", function(){console.log("scrolling....");})
+        // window.addEventListener("wheel", function(event){
+        //     if(event.deltaY < 0/*vertical scrloling*/){console.log("scrolling up....");}
+        // //     else if(event.deltaY > 0){console.log("scrolling down...")}})
+
+        // window.addEventListener("scroll", function () {
+        //     if(window.pageYOffset > 150){document.body.style.background = "red"}
+        //     else{document.body.style.background = "blue"}
+        // });
+
+        // =============input event ====
+        // let x = document.getElementById("myInput")
+
+        // x.addEventListener("focus", function(){x.style.background = "yellow"})
+        // x.addEventListener("blur", function(){x.style.background = "white"})
+        // x.addEventListener("change", function(){console.log(this.value);})
+        // x.addEventListener("input", function(){console.log(this.value);})
+
+        // =============Event bubling and event capturing ==
+        // let btn = document.getElementById("btn")
+        // let div = document.getElementById("mydiv")
+        // btn.addEventListener("click", function(event){console.log("btn clicked");event.stopPropagation();})
+        // div.addEventListener("click", function(){console.log("div clicked");}, false)
+        // //hints turned off
+        // document.body.addEventListener("click", function(){console.log("body clicked");}, false)
+
+        //=====open new window with link ======
+        // let btn = document.getElementById("btn")
+        // btn.addEventListener("click", function(event){
+        //    //console.log(event);
+        //     // window.open(url, name, description)
+        //     window.open("https://www.google.com")
+        // })
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

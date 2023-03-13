@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--    Tree View-->
+        <record id="view_dairy_seller_tree" model="ir.ui.view">
+            <field name="name">dairy.seller.tree</field>
+            <field name="model">dairy.seller</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="seller_id"/>
+                    <field name="seller_last_name" string="Last Name"/>
+                    <!--                    <field name="date"/>-->
+                    <field name="email"/>
+                    <field name="mobile"/>
+                    <field name="gender" string="Gender"/>
+                    <field name="adrs"/>
+                    <field name="country_id"/>
+                    <field name="state_id" string="State"/>
+
+                    <!--                    <field name="milkType"/>-->
+                    <!--                    <field name="liters" sum="liters"/>-->
+                    <!--                    <field name="price"/>-->
+                    <!--                    <field name="total" sum="total"/>-->
+                </tree>
+            </field>
+        </record>
+        <!--    Graph View-->
+        <record id="view_dairy_seller_graph" model="ir.ui.view">
+            <field name="name">dairy.seller.graph</field>
+            <field name="model">dairy.seller</field>
+            <field name="arch" type="xml">
+                <graph string="Seller Details" sample="1">
+                    <field name="seller_id"/>
+                    <field name="seller_last_name" string="Last Name"/>
+                    <!--                    <field name="date"/>-->
+                    <field name="email"/>
+                    <field name="mobile"/>
+                    <field name="gender" string="Gender"/>
+                    <field name="adrs"/>
+                    <field name="country_id"/>
+                    <field name="state_id" string="State"/>
+                </graph>
+            </field>
+        </record>
+
+        <!--        Pivot View-->
+        <record id="view_dairy_seller_pivot" model="ir.ui.view">
+            <field name="name">dairy.seller.pivot</field>
+            <field name="model">dairy.seller</field>
+            <field name="arch" type="xml">
+                <pivot string="Sales Orders" sample="1">
+                    <field name="seller_id"/>
+                    <field name="seller_last_name" string="Last Name"/>
+                    <!--                    <field name="date"/>-->
+                    <field name="email"/>
+                    <field name="mobile"/>
+                    <field name="gender" string="Gender"/>
+                    <field name="adrs"/>
+                    <field name="country_id"/>
+                    <field name="state_id" string="State"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--        Kanban View-->
+        <record id="view_dairy_seller_kanban" model="ir.ui.view">
+            <field name="name">dairy.seller.kanban</field>
+            <field name="model">dairy.seller</field>
+            <field name="arch" type="xml">
+                <kanban string="Seller Details" sample="1">
+                    <field name="seller_id"/>
+                    <field name="seller_last_name" string="Last Name"/>
+                    <!--                    <field name="date"/>-->
+                    <field name="email"/>
+                    <field name="mobile"/>
+                    <field name="gender" string="Gender"/>
+                    <field name="adrs"/>
+                    <field name="country_id"/>
+                    <field name="state_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div>
+                                    <strong>Name:</strong>
+                                    <field name="seller_id"/>
+                                </div>
+                                <div>
+                                    <strong>Last Name:</strong>
+                                    <field name="seller_last_name" string="Last Name"/>
+                                    <br/>
+                                    <!--                    <field name="date"/>-->
+                                    <strong>Email:</strong>
+                                    <field name="email"/>
+                                    <br/>
+
+                                    <strong>Mobile:</strong>
+                                    <field name="mobile"/>
+                                    <br/>
+
+                                    <strong>Gender:</strong>
+                                    <field name="gender" string="Gender"/>
+                                    <br/>
+
+                                    <strong>Address:</strong>
+                                    <field name="adrs"/>
+                                    <br/>
+
+                                    <strong>Country:</strong>
+                                    <field name="country_id"/>
+                                    <br/>
+
+                                    <strong>State:</strong>
+                                    <field name="state_id"/>
+                                    <br/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <!--    Form View-->
+        <record id="view_dairy_seller_form" model="ir.ui.view">
+            <field name="name">dairy.seller.form</field>
+            <field name="model">dairy.seller</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="seller_id"/>
+                                <field name="email" widget="email"/>
+                                <field name="gender" string="Gender" widget="radio"/>
+                                <field name="country_id"/>
+                                <!--                                <field name="milkType"/>-->
+                                <!--                                <field name="date"/>-->
+                            </group>
+                            <group>
+                                <field name="seller_last_name" string="Last Name"/>
+                                <field name="mobile"/>
+                                <field name="adrs"/>
+                                <field name="state_id"/>
+                                <!--                                <field name="liters"/>-->
+                                <!--                                <field name="price"/>-->
+                                <!--                                <field name="active" invisible="1"/>-->
+                                <!--                                <field name="total"/>-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!--        Action-->
+        <record id="action_dairy_seller" model="ir.actions.act_window">
+            <field name="name">Seller</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">dairy.seller</field>
+            <field name="view_mode">tree,graph,kanban,pivot,form</field>
+            <field name="target">inline</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first seller ...!
+                </p>
+            </field>
+        </record>
+
+        <!--        Menu-->
+        <menuitem id="menu_dairy_seller"
+                  name="Seller"
+                  action="action_dairy_seller"
+                  parent="menu_dairy_seller_and_buyer_root"
+                  sequence="0"
+        />
+    </data>
+</odoo>

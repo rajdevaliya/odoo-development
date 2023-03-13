@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatGPT</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="wapp.js"></script>
+</head>
+
+<body>
+    <div class="justify-content-center" style="align-items: center;">
+        <div class="page-content page-container" id="page-content">
+            <div class="padding">
+                <div class="row container d-flex justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card card-bordered">
+                            <div class="card-header">
+                                <h4 class="card-title"><strong>ChatGPT</strong></h4>
+                                <a class="btn btn-xs btn-secondary" href="#" data-abc="true">Let's Chat</a>
+                            </div>
+
+
+                            <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+                                style="overflow-y: scroll !important; height:500px !important; width: 500px;">
+                                <div class="media media-chat">
+                                    <img class="avatar"
+                                        src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                                    <div class="media-body">
+                                        <p>Welcome To ChatGPT !</p>
+                                        <p class="meta"><time datetime="2018">23:58</time></p>
+                                    </div>
+                                </div>
+
+                                <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                    <div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+                                </div>
+                                <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                    <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="publisher bt-1 border-light">
+                                <img class="avatar avatar-xs"
+                                    src="https://img.icons8.com/color/36/000000/administrator-male.png" alt="...">
+                                <input class="publisher-input" id="input_field" type="text"
+                                    placeholder="Write something" autofocus>
+                                <span class="publisher-btn file-group">
+                                    <i class="fa fa-paperclip file-browser"></i>
+                                    <input type="file">
+                                </span>
+                                <a class="publisher-btn" href="#" data-abc="true"><i class="fa fa-smile"></i></a>
+                                <a class="publisher-btn text-info" href="#" id="input_button" data-abc="true"><i
+                                        class="fa fa-paper-plane"></i></a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

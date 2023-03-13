@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--    Website Menu-->
+    <record id="menu_seller_form" model="website.menu">
+        <field name="name">Create Seller</field>
+        <field name="url">/dairy/create_seller/</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">15</field>
+    </record>
+
+    <template id="create_seller" name="Create Dairy Seller">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <h1 class="text-info text-center">Create Seller Form</h1>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-sm-12">
+                                <!--                        Creating a Seller Form-->
+                                <form role="form" action="/dairy/create_seller/" class="dairy_seller f" method="post"
+                                      autocomplete="off">
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <div class="row">
+
+                                        <!-- First Name -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="seller_id" class="col-form-label">First Name</label>
+                                            <input type="text" name="seller_id" id="seller_id"
+                                                   class="form-control validate-field"
+                                                   maxlength="80" required="required"/>
+                                        </div>
+
+                                        <!-- Last Name -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="seller_last_name" class="col-form-label">Last Name</label>
+                                            <input type="text" name="seller_last_name" id="seller_last_name"
+                                                   class="form-control validate-field"
+                                                   maxlength="100" required="required"/>
+                                        </div>
+
+                                        <!-- Email -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="email" class="col-form-label">Email</label>
+                                            <input type="email" name="email" id="email"
+                                                   class="form-control validate-field"
+                                                   required="required"/>
+                                        </div>
+
+                                        <!-- Mobile -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="mobile" class="col-form-label">Mobile</label>
+                                            <input type="text" name="mobile" id="mobile"
+                                                   class="form-control validate-field"
+                                                   maxlength="13" minlength="10" required="required" placeholder="+91"/>
+                                        </div>
+
+                                        <!-- Gender -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="gender" class="col-form-label">Gender</label>
+                                            <br/>
+                                            <input type="radio" class="mx-2" name="gender" id="gender"
+                                                   required="required" value="male">Male
+                                            </input>
+                                            <input type="radio" class="mx-2" name="gender" id="gender"
+                                                   required="required" value="female">Female
+                                            </input>
+                                            <input type="radio" class="mx-2" name="gender" id="gender"
+                                                   required="required" value="other">Other
+                                            </input>
+                                        </div>
+
+                                        <!-- Address -->
+                                        <div class="col-sm-6 input-area">
+                                            <label for="adrs" class="col-form-label">Address</label>
+                                            <textarea name="adrs" id="adrs"
+                                                      class="form-control validate-field"
+                                                      maxlength="100" required="required"/>
+                                        </div>
+
+<!--                                        Country and states-->
+                                        <div t-attf-class="mb-3 col-lg-6 div_country">
+                                            <label class="col-form-label" for="country_id">Country</label>
+                                            <select id="country_id" name="country_id" class="form-select o_country">
+                                                <option value="">Country...</option>
+
+<!--                                                odoo res.country formate-->
+                                                <t t-foreach="countries" t-as="c">
+                                                    <option t-att-value="c.id"
+                                                            t-att-selected="c.id == (country and country.id or -1)">
+                                                        <t t-esc="c.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+
+                                        <div t-attf-class="mb-3 col-lg-6 div_state">
+                                            <label class="col-form-label" for="state_id">State / Province</label>
+                                            <select name="state_id" class="form-select" id="state_id" data-init="1">
+                                                <option value="">State / Province...</option>
+                                                <!--                                                odoo res.country formate-->
+                                                <t t-foreach="country_states" t-as="s">
+                                                    <option t-att-value="s.id">
+                                                        <t t-esc="s.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <br/>
+
+                                    <!--                                    Submit Button-->
+                                    <div class="row" style="text-align:center;">
+                                        <div class="clearfix oe_loin_buttons">
+                                            <button type="submit" class="btn btn-primary pull-left">Create Seller
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="seller_thanks_template" name="Seller Created">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1>Thanks For Connecting</h1>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="alert alert-success" role="status">
+                                Seller Created Successfully.
+                            </div>
+                            <p>
+                                Go Back to
+                                <a t-attf-href="/@/">Home</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="seller_duplicate_email_template" name="Duplicate Email">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <h1>Duplicate Email</h1>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="alert alert-danger" role="status">
+                                This email is use another User
+                            </div>
+                            <a t-attf-href="/dairy/create_seller/">Go Back</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
+
+
+        <!--Freee work-->
+
+        <!--                                        &lt;!&ndash; DropDown List &ndash;&gt;-->
+        <!--                                        <div class="col-sm-6 input-area">-->
+        <!--                                            <label for="country" class="control-label">Choose Country</label>-->
+        <!--                                            <select name="country" id="country"-->
+        <!--                                                    class="form-control validate-field">-->
+        <!--                                                <option value="">Country...</option>-->
+        <!--                                            </select>-->
+        <!--                                        </div>-->
+
+        <!--                                        &lt;!&ndash; DropDown List &ndash;&gt;-->
+        <!--                                        <div class="col-sm-6 input-area">-->
+        <!--                                            <label for="state" class="control-label">Choose State</label>-->
+        <!--                                            <select name="state" id="state"-->
+        <!--                                                    class="form-control validate-field">-->
+        <!--                                                <option value="">select...</option>-->
+        <!--                                            </select>-->
+        <!--                                        </div>-->

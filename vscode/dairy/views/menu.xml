@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="menu_dairy_root"
+              name="Dairy"
+              sequence="0"
+    />
+    <menuitem id="menu_dairy_seller_and_buyer_root"
+              name="Seller / Buyer"
+              parent="menu_dairy_root"
+              sequence="0"
+    />
+
+</odoo>

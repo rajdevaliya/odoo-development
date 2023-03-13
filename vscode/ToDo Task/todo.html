@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body>
+    <header class="bg-success text-white p-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <font face="Comic sans MS" size="11" color="black">
+                        <strong>ToDo List</strong>
+                    </font>
+
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-8">
+                <form class="todo-form">
+                    <div id="myDIV" class="header">
+                        <h2>My To Do List</h2>
+                        <input class="form-control border border-dark mb-1" type="text" id="myInput" placeholder="Title...">
+                        <button type="submit" class="btn btn-primary mb-3">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="row mt-3 justify-content-evenly ">
+            <div class="col-5">
+                <font face="Comic sans MS" size="6" color="black">
+                    <strong>Item submited</strong>
+                </font>
+                <ul id="myUL" class="todo-items">
+
+                </ul>
+            </div>
+            <div class="col-5">
+                <font face="Comic sans MS" size="6" color="black">
+                    <strong>Item selected</strong>
+                </font>
+                <ul id="item" class="todo-list2">
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+<!-- ++++++++++++++++++++rough work========= -->
+
+<!-- <div class="form-group">
+                        <label for="">Enter Your Do`s:</label>
+                        <input id="myInput" class="form-control" type="text" placeholder="Input Here">
+                    </div> -->
+<!-- <div>
+                        <button onclick="newElement()" type="submit" value="Submit">Submit</button>
+
+                    </div> -->
+<!-- <div class="form-group mt-3">
+                        <button id="btn" onclick="newElement()" class="btn btn-primary btn-lg float-right"
+                            type="submit">
+                            Submit
+                        </button>
+                    </div> -->
+
+<!-- <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div> -->
