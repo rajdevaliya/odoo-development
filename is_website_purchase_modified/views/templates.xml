@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="portal_my_purchase_order_inherit" inherit_id="purchase.portal_my_purchase_order"
+              name="Purchase Order Portal Inherit Template">
+        <xpath expr="//div[hasclass('o_download_pdf')]" position="inside">
+            <div class="btn-group flex-grow-1 ms-1 mb-1">
+                <a class="o_calendar_btn btn btn-secondary btn-block" t-att-data-po-id="order.id" t-att-data-access="order.access_token" href="#" title="Receipt Date">
+                    <i class="fa fa-calendar"/>
+                    Receipt Date
+                </a>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

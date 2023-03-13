@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <t t-name="frontend_po_date_change">
+        <div class="modal fade raj_change_date" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content border-0">
+                    <main class="modal-body p-3" style="height:400px;">
+                        <form t-attf-action="/my/purchase/#{order_id}/update?access_token=#{access_token}"
+                            id="o_portal_change_date"
+                            method="POST">
+                            <div class="form-group row">
+                                <label class="control-label col-md-4" for="datetimepickerID">Change Date</label>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <div class="input-group datetime"
+                                             id="datetimepickerID"
+                                             data-target-input="nearest">
+                                            <input type="text"
+                                                   id="raj"
+                                                   class="form-control datetimepicker-input"
+                                                   data-target="#datetimepickerID"
+                                                   data-toggle="datetimepicker"
+                                                   name="my_datetimepicker"/>
+                                            <div class="input-group-append"
+                                                 data-target="#datetimepickerID"
+                                                 data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+<!--                                        <script type="text/javascript">-->
+<!--                                            $(function () {-->
+<!--                                                $('#datetimepickerID').datetimepicker({format : 'DD/MM/YYYY HH:mm:ss A');-->
+<!--                                            });-->
+<!--                                        </script>-->
+                                    </div>
+                                </div>
+                            </div>
+                            <input name="csrf_token" t-att-value="csrf_token" type="hidden"/>
+                        </form>
+                    </main>
+                    <footer class="modal-footer justify-content-start">
+                        <button id="abc" class="btn btn-primary" form="o_portal_change_date" type="submit">Create</button>
+                        <button id="abc" class="btn bg-white text-primary" role="button" data-dismiss="modal">Discard</button>
+<!--                        <button class="btn" t-on-click="_onClickClose">Cancel</button>-->
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </t>
+</templates>
+
+
+
+
+<!--<div class="input-group date" id="mydate" data-target-input="nearest">-->
+<!--                                        <input type="text"-->
+<!--                                               name="date_change"-->
+<!--                                               class="form-control"-->
+<!--                                               data-target="#mydate"-->
+<!--                                               data-toggle="datetimepicker"-->
+<!--                                               id="raj"/>-->
+<!--                                        <div class="input-group-append" data-target="#mydate" data-toggle="datetimepicker">-->
+<!--                                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+
+
+<!--                            <div class="input-group o_survey_form_date" id="mydate" data-target-input="nearest">-->
+<!--                                <input type="text" class="form-control datetimepicker-input o_survey_question_datetime bg-transparent text-dark rounded-0 p-0"-->
+<!--                                       t-attf-data-target="#mydate"-->
+<!--                                       id="raj"-->
+<!--                                       data-toggle="datetimepicker"-->
+<!--                                       name="change_date"/>-->
+<!--                                <div class="input-group-append" t-attf-data-target="#mydate" data-toggle="datetimepicker">-->
+<!--                                    <div class="input-group-text text-primary border-0 bg-transparent p-0"><i class="fa fa-calendar"></i></div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+
+<!--<div class="modal-dialog">-->
+<!--                <div class="modal-content border-0">-->
+<!--                    <main class="modal-body p-3" style="height : 700px;">-->
+<!--                        <form id="o_portal_change_date"-->
+<!--                              t-attf-action="/my/purchase/#{order_id}/update?access_token=#{access_token}"-->
+<!--                              method="post">-->
+<!--                            <input name="csrf_token" t-att-value="csrf_token" type="hidden"/>-->
+<!--                            <div class="container">-->
+<!--                                <div class="form-group">-->
+<!--                                    <div id="mydate" class="input-group date" data-target-input="nearest">-->
+<!--                                        <input type="text"-->
+<!--                                               name="date_change"-->
+<!--                                               id="raj"-->
+<!--                                               data-target="#mydate"-->
+<!--                                               data-toggle="datetimepicker" data-date-format="YYYY-MM-DD"/>-->
+<!--                                        <div class="input-group-append" data-toggle="#raj">-->
+<!--                                            <div data-target="#mydate"-->
+<!--                                                 class="input-group-text text-primary border-0 bg-transparent p-0"><i class="fa fa-calendar"></i></div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </form>-->
+<!--                    </main>-->
+<!--                    <footer class="modal-footer justify-content-start">-->
+<!--                        <button class="btn btn-primary" form="o_portal_change_date" type="submit">Change</button>-->
+<!--                        <button class="btn bg-white text-primary" role="button" data-dismiss="modal">Discard</button>-->
+<!--                    </footer>-->
+<!--                </div>-->
+<!--            </div>-->
