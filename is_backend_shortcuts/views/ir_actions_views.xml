@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="view_window_action_is_inherit_tree" model="ir.ui.view">
+		<field name="name">ir.actions.windows.is.inherit.tree</field>
+		<field name="model">ir.actions.act_window</field>
+        <field name="inherit_id" ref="base.view_window_action_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='view_id']" position="after">
+                <field name="xml_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

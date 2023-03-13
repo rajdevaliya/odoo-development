@@ -1,0 +1,75 @@
+<odoo>
+    <data>
+        <record id="view_backend_shortcut_form" model="ir.ui.view">
+            <field name="name">view.backend.shortcut.form</field>
+            <field name="model">backend.shortcut</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="act_window_id" options="{'no_create': True}"/>
+                                <field name="view_type"/>
+                                <field name="debug_mode"/>
+                                <field name="url" widget="url"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_backend_shortcut_tree" model="ir.ui.view">
+            <field name="name">backend.shortcut.tree</field>
+            <field name="model">backend.shortcut</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="act_window_id"/>
+                    <field name="view_type"/>
+                    <field name="url" widget="url"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_backend_shortcut_search" model="ir.ui.view">
+            <field name="name">backend.shortcut.search</field>
+            <field name="model">backend.shortcut</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="act_window_id"
+                           filter_domain="['|', '|',('act_window_id', 'ilike', self), ('name', 'ilike', self)]"/>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+        <record id="action_backend_shortcut" model="ir.actions.act_window">
+            <field name="name">Shortcuts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">backend.shortcut</field>
+            <field name="view_mode">tree,form,search</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data found!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="backend_shortcut_root"
+                  name="Backend Shortcuts"
+                  groups="is_backend_shortcuts.group_backend_shortcut_user"/>
+
+        <menuitem id="backend_shortcut"
+                  name="Backend Shortcuts"
+                  action="action_backend_shortcut"
+                  groups="is_backend_shortcuts.group_backend_shortcut_user"
+                  parent="backend_shortcut_root"/>
+
+    </data>
+</odoo>
