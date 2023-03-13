@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!--    Website Menu-->
+    <record id="menu_gpt_form" model="website.menu">
+        <field name="name">Chat Gpt</field>
+        <field name="url">/chatgpt/</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">15</field>
+    </record>
+
+    <!--    <template id="chatgpt" name="Chat with ChatGpt">-->
+    <!--        <t t-call="web.frontend_layout">-->
+    <!--            <div class="main-gpt">-->
+    <!--                &lt;!&ndash; Main container &ndash;&gt;-->
+    <!--                <div class="container-gpt">-->
+
+    <!--                    &lt;!&ndash; msg-header section starts &ndash;&gt;-->
+    <!--                    <div class="msg-header">-->
+    <!--                        <div class="container1">-->
+
+    <!--                            <img src="user1.png" class="msgimg"/>-->
+    <!--                            <div class="active-gpt">-->
+    <!--                                <p>Chat GPT</p>-->
+    <!--                            </div>-->
+
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                    &lt;!&ndash; msg-header section ends &ndash;&gt;-->
+
+    <!--                    &lt;!&ndash; Chat inbox  &ndash;&gt;-->
+    <!--                    <div class="chat-page">-->
+    <!--                        <div class="msg-inbox">-->
+    <!--                            <div class="chats">-->
+
+    <!--                                &lt;!&ndash; Message container &ndash;&gt;-->
+    <!--                                <div class="msg-page">-->
+
+    <!--                                    &lt;!&ndash; Incoming messages &ndash;&gt;-->
+
+    <!--                                    <div class="received-chats">-->
+    <!--                                        <div class="received-chats-img">-->
+    <!--                                            <img src="user2.png"/>-->
+
+    <!--                                        </div>-->
+    <!--                                        <div class="received-msg">-->
+    <!--                                            <div class="received-msg-inbox">-->
+    <!--                                                <p>Hi !! This is message from chat gpt.-->
+    <!--                                                </p>-->
+    <!--                                                <span class="time-gpt">18:06 PM | July 24</span>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                    &lt;!&ndash; Outgoing messages &ndash;&gt;-->
+    <!--                                    <div class="outgoing-chats">-->
+    <!--                                        <div class="outgoing-chats-img">-->
+    <!--                                            <img src="user1.png"/>-->
+
+    <!--                                        </div>-->
+    <!--                                        <div class="outgoing-msg">-->
+    <!--                                            <div class="outgoing-chats-msg">-->
+    <!--                                                <p class="multi-msg">Hi riya , Lorem ipsum dolor sit amet consectetur-->
+    <!--                                                    adipisicing-->
+    <!--                                                    elit. Illo nobis deleniti earum magni recusandae assumenda.-->
+    <!--                                                </p>-->
+    <!--                                                <p class="multi-msg">Lorem ipsum dolor sit amet consectetur.</p>-->
+
+
+    <!--                                                <span class="time-gpt">18:30 PM | July 24</span>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="received-chats">-->
+    <!--                                        <div class="received-chats-img">-->
+    <!--                                            <img src="user2.png"/>-->
+
+    <!--                                        </div>-->
+    <!--                                        <div class="received-msg">-->
+    <!--                                            <div class="received-msg-inbox">-->
+    <!--                                                <p class="single-msg">Hi !! This is message from John Lewis. Lorem-->
+    <!--                                                    ipsum, dolor sit-->
+    <!--                                                    amet consectetur adipisicing elit. iste distinctio expedita illo!-->
+    <!--                                                </p>-->
+    <!--                                                <span class="time-gpt">18:31 PM | July 24</span>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+    <!--                                    <div class="outgoing-chats">-->
+    <!--                                        <div class="outgoing-chats-img">-->
+    <!--                                            <img src="user1.png"/>-->
+
+    <!--                                        </div>-->
+    <!--                                        <div class="outgoing-msg">-->
+    <!--                                            <div class="outgoing-chats-msg">-->
+    <!--                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit,-->
+    <!--                                                    sequi.-->
+    <!--                                                </p>-->
+
+    <!--                                                <span class="time-gpt">18:34 PM | July 24</span>-->
+    <!--                                            </div>-->
+    <!--                                        </div>-->
+    <!--                                    </div>-->
+
+
+    <!--                                </div>-->
+    <!--                            </div>-->
+
+    <!--                            &lt;!&ndash; msg-bottom section &ndash;&gt;-->
+
+
+    <!--                            <div class="msg-bottom">-->
+    <!--                                <div class="input-group-gpt" style="margin-bottom:5px;">-->
+    <!--                                    <input type="text" class="form-control-gpt" placeholder="Write message..."/>-->
+    <!--                                    <button type="submit">-->
+    <!--                                        <span class="input-group-text-gpt send-icon ">-->
+    <!--                                            <i class="bi bi-send "></i>-->
+    <!--                                        </span>-->
+    <!--                                    </button>-->
+
+    <!--                                </div>-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </t>-->
+    <!--    </template>-->
+
+    <template id="chatgpt" name="Chat with ChatGpt">
+        <t t-call="web.frontend_layout">
+            <t t-set="html_data" t-value="{'style': 'height: 100%;'}"/>
+            <t t-set="body_classname" t-value="'bg-100'"/>
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="background body-gpt" style="background-color:  yellowgreen;">
+                <div class="page-content page-container" id="page-content">
+                    <div class="padding">
+                        <div class="row container d-flex justify-content-center">
+                            <div class="col-md-6">
+                                <div class="card card-bordered">
+                                    <div class="card-header">
+                                        <h4 class="card-title">
+                                            <strong>ChatGPT</strong>
+                                        </h4>
+                                        <a class="btn btn-xs btn-secondary" href="/" data-abc="true">Back</a>
+                                    </div>
+
+
+                                    <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+                                         style="overflow-y: scroll !important; height:500px !important; width: 500px;">
+                                        <div class="media media-chat">
+                                            <img class="avatar"
+                                                 src="https://img.icons8.com/color/36/000000/administrator-male.png"
+                                                 alt="..."/>
+                                            <div class="media-body">
+                                                <p>Welcome To ChatGPT !</p>
+                                                <p class="meta">
+                                                    <time datetime="2018">23:58</time>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;">
+                                            <div class="ps-scrollbar-x" tabindex="0"
+                                                 style="left: 0px; width: 0px;"></div>
+                                        </div>
+                                        <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px;">
+                                            <div class="ps-scrollbar-y" tabindex="0"
+                                                 style="top: 0px; height: 2px;"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="publisher bt-1 border-light">
+                                        <img class="avatar avatar-xs"
+                                             src="https://img.icons8.com/color/36/000000/administrator-male.png"
+                                             alt="..."/>
+                                        <input class="publisher-input" id="input_field" type="text"
+                                               placeholder="Write something" autofocus="false"/>
+                                        <span class="publisher-btn file-group">
+                                            <i class="fa fa-paperclip file-browser"></i>
+                                            <input type="file"/>
+                                        </span>
+                                        <a class="publisher-btn" href="#" data-abc="true">
+                                            <i class="fa fa-smile"></i>
+                                        </a>
+                                        <a class="publisher-btn text-info" href="#" id="input_button" data-abc="true">
+                                            <i
+                                                    class="fa fa-paper-plane"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+
+    </template>
+
+</odoo>
