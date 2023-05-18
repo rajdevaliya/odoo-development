@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_dropzone_view" model="ir.actions.client">
+        <field name="name">Dropzone</field>
+        <field name="tag">dropzone_board</field>
+    </record>
+
+    <menuitem
+            id="menu_files_dropzone_area"
+            name="Drop Files"
+            action="action_dropzone_view"
+            parent="drag_and_drop_root"
+            sequence="2"/>
+</odoo>

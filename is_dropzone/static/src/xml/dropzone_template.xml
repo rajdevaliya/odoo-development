@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="is_dropzone.FileDropArea" owl="1">
+         <div class="container-fluid h-100">
+            <div class="row h-100" t-on-dragenter="onDragenter" t-on-dragleave="onDragleave"
+                 t-on-dragover="onDragover" t-on-drop="onDrop"
+                 t-att-style="isDraggingInside.background"
+                 t-att-class="{ 'o-dragging-inside': isDraggingInside.value }">
+                <div class="col-sm-12 my-auto">
+                    <div class="d-flex justify-content-center">
+                        <form action="/web/upload-files" method="post" class="dropzone h-100" enctype="multipart/form-data" id="dropzone-form">
+                            <div class="dz-message">
+                                <div t-att-class="{ 'd-none': isDraggingInside.hide }">
+                                    <h1>Drop files here to upload</h1>
+                                    <p t-att-class="{'d-none' : isDraggingInside.value }" class="text-success">Your files are submitted successfully !</p>
+                                    <div class="mb-3">
+                                        <input type="hidden" name="csrf_token" t-att-value="csrf_token"/>
+                                        <input name="files" class="form-control d-none" type="file" id="formFileMultiple" multiple="true" t-ref="inputFiles" accept=".pdf, .doc, .docx, .csv, image/png, audio/mpeg, audio/ogg, .txt"/>
+                                    </div>
+                                </div>
+                                <div t-att-class="{ 'd-none': !isDraggingInside.hide }">
+                                     <div class="col-auto">
+                                        <button t-on-click="submitForm" type="submit" class="btn btn-primary text-white mb-3">Submit</button>
+                                     </div>
+                                    <div class="card bg-primary text-white" style="width: 400px; height: 400px;">
+                                      <div class="card-header">
+                                        <h1>Selected Files</h1>
+                                      </div>
+                                      <div class="overflow-auto bg-primary text-white">
+                                          <ul class="list-group list-group-flush">
+                                              <t t-foreach="FileList" t-as="file" t-key="file.id">
+                                                <li class="rounded list-group-item mx-2 text-dark mb-2 d-flex justify-content-between align-items-center">
+                                                    <t t-esc="file.name"/>
+                                                    <button t-att-id="file.id" t-on-click="removeFile(file.id)" type="button" class="btn btn-outline-danger rounded-circle trash-btn float-end">
+                                                        <i class="fa fa-trash"></i>
+                                                    </button>
+                                                </li>
+                                              </t>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </t>
+</templates>
+

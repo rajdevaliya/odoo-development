@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <record id="view_drag_and_drop_form" model="ir.ui.view">
+            <field name="name">view.drag.and.drop.form</field>
+            <field name="model">drag.drop.items</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="file" filename="name" widget="binary" maxFileSize="100000000"/>
+                            <field name="metadata"/>
+                            <field name="is_audio" invisible="1"/>
+                            <field name="audio" widget="audio" attrs="{'invisible': [('is_audio', '=', False)]}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_drag_and_drop_tree" model="ir.ui.view">
+            <field name="name">view.drag.and.drop.form</field>
+            <field name="model">drag.drop.items</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="file" filename="name" widget="binary"/>
+                    <field name="metadata"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_drag_and_drop_search" model="ir.ui.view">
+            <field name="name">view.drag.and.drop.search</field>
+            <field name="model">drag.drop.items</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"
+                           filter_domain="['|', '|',('name','ilike', self),('file', 'ilike', self),('metadata', 'ilike', self)]"/>
+                    <field name="file"/>
+                    <field name="metadata"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_drag_and_drop" model="ir.actions.act_window">
+            <field name="name">Files</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">drag.drop.items</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No data found!
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="drag_and_drop_root"
+                  name="Files"
+                  action="action_drag_and_drop"
+                  sequence="0"/>
+
+    </data>
+</odoo>
